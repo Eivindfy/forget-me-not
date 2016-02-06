@@ -42,6 +42,16 @@
 			<locationURI>STUDIO_SDK_LOC/emlib/src/em_gpio.c</locationURI>
 		</link>
 		<link>
+			<name>emlib/em_lcd.c</name>
+			<type>1</type>
+			<location>C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/efm32/v2/emlib/src/em_lcd.c</location>
+		</link>
+		<link>
+			<name>emlib/em_letimer.c</name>
+			<type>1</type>
+			<location>C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/efm32/v2/emlib/src/em_letimer.c</location>
+		</link>
+		<link>
 			<name>emlib/em_rtc.c</name>
 			<type>1</type>
 			<locationURI>STUDIO_SDK_LOC/emlib/src/em_rtc.c</locationURI>

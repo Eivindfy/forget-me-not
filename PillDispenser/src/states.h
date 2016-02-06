@@ -11,7 +11,7 @@
 
 enum states {stateWait, stateStep, stateNotify};
 
-states dispenserState = stateWait;
+
 
 void changeStateToStep();
 void changeStateToNotify();

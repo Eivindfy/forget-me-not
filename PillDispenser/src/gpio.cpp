@@ -5,9 +5,9 @@
  *      Author: Eivind
  */
 
+#include "stepmotor.h"
 #include "em_cmu.h"
 #include "em_gpio.h"
-#include "stepmotor.h"
 
 void gpioSetup(){
 

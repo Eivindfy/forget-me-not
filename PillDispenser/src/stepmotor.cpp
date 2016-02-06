@@ -63,13 +63,13 @@ void motor_gpioSetup(void)
   GPIO_PinModeSet(gpioPortC, 5, gpioModePushPull, 0);
 
   GPIO_PinModeSet(gpioPortC, 6, gpioModePushPull, 0); //Pc6 as enable signal for the driver
+  GPIO_PinOutSet(gpioPortC, 6);
 }
 
 /**************************************************************************//**
  * @brief motor timer interrupt handler, for controlling the step motor, one_step_completed must be set to 0 in order to start 4 microsteps
  *****************************************************************************/
 unsigned char motor_microstep(void){
-	if(motor_phase_counter < number_of_motor_phases){
 		//set the debug values
 		A = motor_vectors[motor_phase_counter][0];
 		B = motor_vectors[motor_phase_counter][1];
@@ -97,7 +97,7 @@ unsigned char motor_microstep(void){
 			GPIO_PinOutClear(gpioPortC, 5); }
 		else{
 			GPIO_PinOutSet(gpioPortC, 5); }
-
+	if(motor_phase_counter < number_of_motor_phases){
 		motor_phase_counter++; //go to next vector in motor_vectors upon the next interrupt
 	}
 	else{

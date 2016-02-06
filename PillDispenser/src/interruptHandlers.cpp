@@ -31,16 +31,18 @@ void RTC_IRQHandler(void)
 
 void LETIMER0_IRQHandler(void){
 	LETIMER_IntClear(LETIMER0, LETIMER_IFC_COMP0);
-	if(getDispenserState() == stateNotify){
+	if(getDispenserState() == stateNotify ){
 		SegmentLCD_Write(sentence[wordPtr]);
 		wordPtr++;
 		if(wordPtr == 4){wordPtr = 0;}
 	}
 	else if(getDispenserState() == stateStep){
 		motor_microstep();
-		if(stepsTaken == MAX_STEPS){
+		if(stepsTaken == MAX_STEPS - 1){
 			changeStateToNotify();
+			stepsTaken = 0;
 		}
+		stepsTaken ++;
 	}
 }
 
@@ -49,7 +51,7 @@ void GPIO_EVEN_IRQHandler(void)
 {
 	if(GPIO_IntGet() & 1){
 		GPIO_IntClear(1 << 0);
-		changeStateToWait();
+//		changeStateToWait();
 	}
 }
 

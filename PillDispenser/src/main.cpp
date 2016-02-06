@@ -22,6 +22,7 @@
 #include "interruptHandlers.h"
 #include "leTimer.h"
 #include "segmentlcd.h"
+#include "stepmotor.h"
 
 /**************************************************************************//**
  * @brief  Main function

@@ -9,16 +9,18 @@
 #include "leTimer.h"
 #include "gpio.h"
 
+states dispenserState = stateWait;
+
 void changeStateToStep(){
-	dispenserState = stateStep;
 	leTimerTurnOn(4);
+	dispenserState = stateStep;
 }
 
 void changeStateToNotify(){
-	leTimerTurnOff();
-	leTimerTurnOn(10);
-	pillTriggerOn();
 	dispenserState = stateNotify;
+	leTimerTurnOff();
+	pillTriggerOn();
+	leTimerTurnOn(10);
 }
 
 void changeStateToWait(){

@@ -4,13 +4,10 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/src/em_letimer.c 
 
 OBJS += \
-./em_letimer.o 
 
 C_DEPS += \
-./em_letimer.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
