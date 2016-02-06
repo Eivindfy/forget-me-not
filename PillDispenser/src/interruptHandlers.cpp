@@ -51,7 +51,9 @@ void GPIO_EVEN_IRQHandler(void)
 {
 	if(GPIO_IntGet() & 1){
 		GPIO_IntClear(1 << 0);
-//		changeStateToWait();
+		changeStateToWait();
+		SegmentLCD_AllOff();
+		wordPtr = 0;
 	}
 }
 

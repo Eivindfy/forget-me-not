@@ -18,7 +18,7 @@ void gpioSetup(){
 	GPIO_PinModeSet(gpioPortC, 0, gpioModePushPull, 0);
 
 	/* Configure PD0 as input */
-	GPIO_PinModeSet(gpioPortB, 9, gpioModeInput, 0);
+	GPIO_PinModeSet(gpioPortD, 0, gpioModeInput, 0);
 
 
 
@@ -34,10 +34,10 @@ void gpioSetup(){
 
 void pillTriggerOn(){
 	/* Set rising edge interrupt for both ports */
-	GPIO_IntConfig(gpioPortB, 9, true, false, true);
+	GPIO_IntConfig(gpioPortD, 0, true, false, true);
 }
 
 void pillTriggerOff(){
-	GPIO_IntConfig(gpioPortB, 9, true, false, false);
+	GPIO_IntConfig(gpioPortD, 0, true, false, false);
 }
 
