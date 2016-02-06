@@ -20,8 +20,7 @@ void gpioSetup(){
 	/* Configure PD0 as input */
 	GPIO_PinModeSet(gpioPortB, 9, gpioModeInput, 0);
 
-	/* Set rising edge interrupt for both ports */
-	GPIO_IntConfig(gpioPortB, 9, true, false, true);
+
 
 	motor_gpioSetup(); //set up the output pins for the step motor
 
@@ -33,4 +32,12 @@ void gpioSetup(){
 	GPIO_PinOutSet(gpioPortC, 0);
 }
 
+void pillTriggerOn(){
+	/* Set rising edge interrupt for both ports */
+	GPIO_IntConfig(gpioPortB, 9, true, false, true);
+}
+
+void pillTriggerOff(){
+	GPIO_IntConfig(gpioPortB, 9, true, false, false);
+}
 

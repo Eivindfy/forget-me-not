@@ -20,7 +20,7 @@ void leTimerSetup(){
 
 	NVIC_EnableIRQ(LETIMER0_IRQn);
 
-	leTimerTurnOn();
+	leTimerTurnOn(10);
 }
 
 void leTimerTurnOff(){
@@ -32,7 +32,7 @@ void leTimerTurnOff(){
 
 }
 
-void leTimerTurnOn(){
+void leTimerTurnOn(int interval10thOfSecond){
 	CMU_ClockEnable(cmuClock_LETIMER0, true);
 
 	LETIMER_Init_TypeDef letimerInit = LETIMER_INIT_DEFAULT;
@@ -43,7 +43,7 @@ void leTimerTurnOn(){
 	LETIMER_Init(LETIMER0, &letimerInit);
 
 	/* Setting timer interrupt time to 1 second */
-	LETIMER_CompareSet(LETIMER0, 0, (LE_TIMER_CLOCK_FREQ/ 1));
+	LETIMER_CompareSet(LETIMER0, 0, (LE_TIMER_CLOCK_FREQ/ LE_TIMER_CLOCK_DIVISION)/ 10 * interval10thOfSecond);
 
 	/*Enabling interrupt */
 	LETIMER_IntEnable(LETIMER0, LETIMER_IF_COMP0);

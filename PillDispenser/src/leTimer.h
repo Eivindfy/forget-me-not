@@ -11,5 +11,5 @@
 
 void leTimerSetup();
 void leTimerTurnOff();
-void leTimerTurnOn();
+void leTimerTurnOn(int interval10thOfSecond);
 #endif /* LETIMER_H_ */
