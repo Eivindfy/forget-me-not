@@ -97,7 +97,7 @@ unsigned char motor_microstep(void){
 			GPIO_PinOutClear(gpioPortC, 5); }
 		else{
 			GPIO_PinOutSet(gpioPortC, 5); }
-	if(motor_phase_counter < number_of_motor_phases){
+	if(motor_phase_counter < number_of_motor_phases - 1){
 		motor_phase_counter++; //go to next vector in motor_vectors upon the next interrupt
 	}
 	else{

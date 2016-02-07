@@ -18,7 +18,8 @@
 char *sentence[] = {"KAI", "TAKE", "YOUR", "MEDS."};
 int wordPtr = 0;
 int stepsTaken = 0;
-#define MAX_STEPS 8
+#define MAX_STEPS 12
+int halfStep = 0;
 
 char *menu[] = {"1 0s", "12 h", "1 days", "2 days" };
 int menuPtr = 0;
@@ -43,10 +44,14 @@ void LETIMER0_IRQHandler(void){
 	}
 	else if(getDispenserState() == stateStep){
 		motor_microstep();
-		if(stepsTaken == MAX_STEPS - 1){
+		if(stepsTaken == MAX_STEPS + halfStep){
 			changeStateToNotify();
 			wordPtr = 0;
 			stepsTaken = 0;
+			if(halfStep)
+				halfStep = 0;
+			else
+				halfStep = 1;
 		}
 		stepsTaken ++;
 	}
