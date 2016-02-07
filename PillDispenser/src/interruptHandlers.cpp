@@ -14,6 +14,8 @@
 #include "states.h"
 #include "stepmotor.h"
 #include "rtc.h"
+#include "timer.h"
+#include "em_timer.h"
 
 char *sentence[] = {"KAI", "TAKE", "YOUR", "MEDS."};
 int wordPtr = 0;
@@ -22,6 +24,7 @@ int stepsTaken = 0;
 
 char *menu[] = {"1 0s", "12 h", "1 days", "2 days" };
 int menuPtr = 0;
+bool buzz = true;
 
 void RTC_IRQHandler(void)
 {
@@ -40,6 +43,17 @@ void LETIMER0_IRQHandler(void){
 		wordPtr++;
 		if(wordPtr == 4){wordPtr = 0;}
 		GPIO_PinOutToggle(gpioPortD, 1);
+		 if(buzz)
+		 {
+			 timerTurnOn();
+			 buzz = false;
+		 }
+		 else
+		 {
+			 timerTurnOff();
+			 buzz = true;
+
+		 }
 	}
 	else if(getDispenserState() == stateStep){
 		motor_microstep();
@@ -62,6 +76,8 @@ void GPIO_EVEN_IRQHandler(void)
 			changeStateToWait();
 			SegmentLCD_AllOff();
 			GPIO_PinOutClear(gpioPortD, 1);
+			timerTurnOff();
+			buzz = true;
 		}
 	}else if(getDispenserState() == stateMenu){
 		if(GPIO_IntGet() & 1<< 10){
@@ -90,4 +106,11 @@ void GPIO_ODD_IRQHandler(void)
 
 }
 
+void TIMER0_IRQHandler(void)
+{
+  /* Clear flag for TIMER0 overflow interrupt */
+  TIMER_IntClear(TIMER0, TIMER_IF_OF);
+
+  GPIO_PinOutToggle(gpioPortD, 7);
+}
 

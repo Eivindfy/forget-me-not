@@ -1,4 +1,5 @@
-src/main.o: ../src/main.cpp \
+emlib/em_timer.o: ../emlib/em_timer.c \
+ D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_timer.h \
  D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/Device/SiliconLabs/EFM32GG/Include/em_device.h \
  D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/Device/SiliconLabs/EFM32GG/Include/efm32gg990f1024.h \
  D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/CMSIS/Include/core_cm3.h \
@@ -52,15 +53,10 @@ src/main.o: ../src/main.cpp \
  D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/Device/SiliconLabs/EFM32GG/Include/efm32gg_uart.h \
  D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/Device/SiliconLabs/EFM32GG/Include/efm32gg_af_ports.h \
  D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/Device/SiliconLabs/EFM32GG/Include/efm32gg_af_pins.h \
- D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_chip.h \
- D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_system.h \
- D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_emu.h \
- D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_bus.h \
- ../src/rtc.h ../src/gpio.h ../src/interruptHandlers.h ../src/leTimer.h \
- D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/kits/common/drivers/segmentlcd.h \
- D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/kits/EFM32GG_STK3700/config/segmentlcdconfig.h \
- D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_lcd.h \
- ../src/stepmotor.h ../src/timer.h
+ D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_assert.h \
+ D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_assert.h
+
+D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_timer.h:
 
 D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/Device/SiliconLabs/EFM32GG/Include/em_device.h:
 
@@ -168,28 +164,6 @@ D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/Device/SiliconLabs/EFM32GG/
 
 D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/Device/SiliconLabs/EFM32GG/Include/efm32gg_af_pins.h:
 
-D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_chip.h:
+D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_assert.h:
 
-D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_system.h:
-
-D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_emu.h:
-
-D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_bus.h:
-
-../src/rtc.h:
-
-../src/gpio.h:
-
-../src/interruptHandlers.h:
-
-../src/leTimer.h:
-
-D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/kits/common/drivers/segmentlcd.h:
-
-D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/kits/EFM32GG_STK3700/config/segmentlcdconfig.h:
-
-D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_lcd.h:
-
-../src/stepmotor.h:
-
-../src/timer.h:
+D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_assert.h:

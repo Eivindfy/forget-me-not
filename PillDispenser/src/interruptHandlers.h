@@ -16,4 +16,6 @@ void GPIO_EVEN_IRQHandler(void);
 
 void GPIO_ODD_IRQHandler(void);
 
+void TIMER0_IRQHandler(void);
+
 #endif /* INTERRUPTHANDLERS_H_ */

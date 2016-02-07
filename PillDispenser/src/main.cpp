@@ -23,6 +23,7 @@
 #include "leTimer.h"
 #include "segmentlcd.h"
 #include "stepmotor.h"
+#include "timer.h"
 
 /**************************************************************************//**
  * @brief  Main function
@@ -37,6 +38,7 @@ int main(void)
   rtcSetup();
   leTimerSetup();
   leTimerTurnOff();
+  timerSetup();
 
   /* Infinite loop */
   while (1) {

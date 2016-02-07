@@ -26,6 +26,9 @@ void gpioSetup(){
 	/* Configure PB1 as input */
 	GPIO_PinModeSet(gpioPortB, 9, gpioModeInput, 0);
 
+	/* configure PD7 as output */
+	GPIO_PinModeSet(gpioPortD, 7, gpioModePushPull, 0);
+
 
 	GPIO_IntConfig(gpioPortB, 9, true, false, true);
 	motor_gpioSetup(); //set up the output pins for the step motor

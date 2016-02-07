@@ -1,4 +1,4 @@
-src/gpio.o: ../src/gpio.cpp \
+src/gpio.o: ../src/gpio.cpp ../src/stepmotor.h \
  D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_cmu.h \
  D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/Device/SiliconLabs/EFM32GG/Include/em_device.h \
  D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/Device/SiliconLabs/EFM32GG/Include/efm32gg990f1024.h \
@@ -56,6 +56,8 @@ src/gpio.o: ../src/gpio.cpp \
  D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_assert.h \
  D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_bus.h \
  D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_gpio.h
+
+../src/stepmotor.h:
 
 D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_cmu.h:
 

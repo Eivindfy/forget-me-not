@@ -10,7 +10,8 @@ D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/src/em_gpio.c \
 ../emlib/em_lcd.c \
 ../emlib/em_letimer.c \
 D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/src/em_rtc.c \
-D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/src/em_system.c 
+D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/src/em_system.c \
+../emlib/em_timer.c 
 
 OBJS += \
 ./emlib/em_cmu.o \
@@ -19,7 +20,8 @@ OBJS += \
 ./emlib/em_lcd.o \
 ./emlib/em_letimer.o \
 ./emlib/em_rtc.o \
-./emlib/em_system.o 
+./emlib/em_system.o \
+./emlib/em_timer.o 
 
 C_DEPS += \
 ./emlib/em_cmu.d \
@@ -28,7 +30,8 @@ C_DEPS += \
 ./emlib/em_lcd.d \
 ./emlib/em_letimer.d \
 ./emlib/em_rtc.d \
-./emlib/em_system.d 
+./emlib/em_system.d \
+./emlib/em_timer.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -78,6 +81,13 @@ emlib/em_system.o: D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/sr
 	@echo 'Building file: $<'
 	@echo 'Invoking: GNU ARM C Compiler'
 	arm-none-eabi-gcc -g -gdwarf-2 -mcpu=cortex-m3 -mthumb '-DEFM32GG990F1024=1' '-DDEBUG=1' -I"D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/CMSIS/Include" -I"D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/kits/common/bsp" -I"D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc" -I"D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/kits/common/drivers" -I"D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/Device/SiliconLabs/EFM32GG/Include" -I"D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/kits/EFM32GG_STK3700/config" -O0 -Wall -c -fmessage-length=0 -mno-sched-prolog -fno-builtin -ffunction-sections -fdata-sections -std=c99 -MMD -MP -MF"emlib/em_system.d" -MT"emlib/em_system.o" -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+emlib/em_timer.o: ../emlib/em_timer.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: GNU ARM C Compiler'
+	arm-none-eabi-gcc -g -gdwarf-2 -mcpu=cortex-m3 -mthumb '-DEFM32GG990F1024=1' '-DDEBUG=1' -I"D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/CMSIS/Include" -I"D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/kits/common/bsp" -I"D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc" -I"D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/kits/common/drivers" -I"D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/Device/SiliconLabs/EFM32GG/Include" -I"D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/kits/EFM32GG_STK3700/config" -O0 -Wall -c -fmessage-length=0 -mno-sched-prolog -fno-builtin -ffunction-sections -fdata-sections -std=c99 -MMD -MP -MF"emlib/em_timer.d" -MT"emlib/em_timer.o" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

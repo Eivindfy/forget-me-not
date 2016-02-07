@@ -57,9 +57,12 @@ src/interruptHandlers.o: ../src/interruptHandlers.cpp \
  D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_gpio.h \
  D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_bus.h \
  D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_assert.h \
+ ../src/leTimer.h \
  D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/kits/common/drivers/segmentlcd.h \
  D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/kits/EFM32GG_STK3700/config/segmentlcdconfig.h \
- D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_lcd.h
+ D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_lcd.h \
+ ../src/states.h ../src/stepmotor.h ../src/rtc.h ../src/timer.h \
+ D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_timer.h
 
 D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_rtc.h:
 
@@ -177,8 +180,20 @@ D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_bus.h:
 
 D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_assert.h:
 
+../src/leTimer.h:
+
 D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/kits/common/drivers/segmentlcd.h:
 
 D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/kits/EFM32GG_STK3700/config/segmentlcdconfig.h:
 
 D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_lcd.h:
+
+../src/states.h:
+
+../src/stepmotor.h:
+
+../src/rtc.h:
+
+../src/timer.h:
+
+D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_timer.h:

@@ -55,7 +55,8 @@ src/leTimer.o: ../src/leTimer.cpp \
  D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/Device/SiliconLabs/EFM32GG/Include/efm32gg_af_pins.h \
  D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_cmu.h \
  D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_assert.h \
- D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_bus.h
+ D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_bus.h \
+ ../src/leTimer.h
 
 D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_letimer.h:
 
@@ -170,3 +171,5 @@ D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_cmu.h:
 D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_assert.h:
 
 D:/Programs/SimplicityStudio/developer/sdks/efm32/v2/emlib/inc/em_bus.h:
+
+../src/leTimer.h:
