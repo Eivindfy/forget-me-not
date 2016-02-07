@@ -39,6 +39,7 @@ void LETIMER0_IRQHandler(void){
 		SegmentLCD_Write(sentence[wordPtr]);
 		wordPtr++;
 		if(wordPtr == 4){wordPtr = 0;}
+		GPIO_PinOutToggle(gpioPortD, 1);
 	}
 	else if(getDispenserState() == stateStep){
 		motor_microstep();
@@ -60,6 +61,7 @@ void GPIO_EVEN_IRQHandler(void)
 			GPIO_IntClear(1 << 0);
 			changeStateToWait();
 			SegmentLCD_AllOff();
+			GPIO_PinOutClear(gpioPortD, 1);
 		}
 	}else if(getDispenserState() == stateMenu){
 		if(GPIO_IntGet() & 1<< 10){

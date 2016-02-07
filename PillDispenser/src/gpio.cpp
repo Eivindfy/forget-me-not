@@ -14,8 +14,8 @@ void gpioSetup(){
 	/* Enable GPIO in CMU */
 	CMU_ClockEnable(cmuClock_GPIO, true);
 
-	/* Configure PC0 as Output */
-	GPIO_PinModeSet(gpioPortC, 0, gpioModePushPull, 0);
+	/* Configure PD1 as Output */
+	GPIO_PinModeSet(gpioPortD, 1, gpioModePushPull, 0);
 
 	/* Configure PD0 as input */
 	GPIO_PinModeSet(gpioPortD, 0, gpioModeInput, 0);
@@ -37,7 +37,7 @@ void gpioSetup(){
 	NVIC_EnableIRQ(GPIO_ODD_IRQn);
 
 	/* Set PC0 to 0 */
-	GPIO_PinOutSet(gpioPortC, 0);
+	GPIO_PinOutClear(gpioPortD, 1);
 }
 
 void pillTriggerOn(){
