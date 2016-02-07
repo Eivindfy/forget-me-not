@@ -28,7 +28,7 @@ void rtcSetup(){
 	RTC_Init(&rtcInit);
 
 	/* Interrupt every minute */
-	RTC_CompareSet(0, ((RTC_FREQ / CLOCK_DIVISION)  ) - 1 );
+	RTC_CompareSet(0, ((RTC_FREQ / CLOCK_DIVISION) *3600*24 ) - 1 );
 
 	/* Enable interrupt */
 	NVIC_EnableIRQ(RTC_IRQn);
@@ -37,4 +37,32 @@ void rtcSetup(){
 	/* Start Counter */
 	RTC_Enable(true);
 
+}
+
+void rtcSetDelay(int menuItem){
+	int delay;
+	switch (menuItem)
+	{
+		case 0:
+			delay = 10;
+			break;
+		case 1:
+			delay = 3600 * 12;
+			break;
+		case 2:
+			delay = 3600 * 24;
+			break;
+		case 3:
+			delay = 3600 * 48;
+			break;
+	}
+	/* Interrupt every minute */
+	RTC_CompareSet(0, ((RTC_FREQ / CLOCK_DIVISION) * delay ) - 1 );
+
+	/* Start Counter */
+	RTC_Enable(true);
+}
+
+void rtcDisable(){
+	RTC_Enable(false);
 }

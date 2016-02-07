@@ -9,13 +9,14 @@
 #define STATES_H_
 
 
-enum states {stateWait, stateStep, stateNotify};
+enum states {stateWait, stateStep, stateNotify, stateMenu};
 
 
 
 void changeStateToStep();
 void changeStateToNotify();
 void changeStateToWait();
+void changeStateToMenu();
 states getDispenserState();
 
 #endif /* STATES_H_ */

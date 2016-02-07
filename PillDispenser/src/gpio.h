@@ -12,5 +12,7 @@
 void gpioSetup();
 void pillTriggerOn();
 void pillTriggerOff();
+void menuButtonOn();
+void menuButtonOff();
 
 #endif /* GPIO_H_ */

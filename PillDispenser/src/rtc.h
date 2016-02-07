@@ -9,6 +9,8 @@
 #define RTCINIT_H_
 
 void rtcSetup();
+void rtcSetDelay(int menuItem);
+void rtcDisable();
 
 
 #endif /* RTCINIT_H_ */

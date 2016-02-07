@@ -13,11 +13,15 @@
 #include "segmentlcd.h"
 #include "states.h"
 #include "stepmotor.h"
+#include "rtc.h"
 
 char *sentence[] = {"KAI", "TAKE", "YOUR", "MEDS."};
 int wordPtr = 0;
 int stepsTaken = 0;
 #define MAX_STEPS 8
+
+char *menu[] = {"1 0s", "12 h", "1 days", "2 days" };
+int menuPtr = 0;
 
 void RTC_IRQHandler(void)
 {
@@ -40,6 +44,7 @@ void LETIMER0_IRQHandler(void){
 		motor_microstep();
 		if(stepsTaken == MAX_STEPS - 1){
 			changeStateToNotify();
+			wordPtr = 0;
 			stepsTaken = 0;
 		}
 		stepsTaken ++;
@@ -49,12 +54,38 @@ void LETIMER0_IRQHandler(void){
 
 void GPIO_EVEN_IRQHandler(void)
 {
-	if(GPIO_IntGet() & 1){
-		GPIO_IntClear(1 << 0);
-		changeStateToWait();
-		SegmentLCD_AllOff();
-		wordPtr = 0;
+
+	if(getDispenserState() == stateNotify){
+		if(GPIO_IntGet() & 1){
+			GPIO_IntClear(1 << 0);
+			changeStateToWait();
+			SegmentLCD_AllOff();
+		}
+	}else if(getDispenserState() == stateMenu){
+		if(GPIO_IntGet() & 1<< 10){
+			GPIO_IntClear(1 << 10);
+			menuPtr++;
+			if(menuPtr == 4){menuPtr = 0;}
+			SegmentLCD_Write(menu[menuPtr]);
+		}
 	}
+}
+
+void GPIO_ODD_IRQHandler(void)
+{
+	if(GPIO_IntGet() & (1 << 9)){
+		if(getDispenserState() == stateMenu){
+			GPIO_IntClear(1 << 9);
+			changeStateToWait();
+			rtcSetDelay(menuPtr);
+			SegmentLCD_AllOff();
+		}else{
+			GPIO_IntClear(1 << 9);
+			changeStateToMenu();
+			SegmentLCD_Write("MENU");
+		}
+	}
+
 }
 
 

@@ -8,6 +8,7 @@
 #include "states.h"
 #include "leTimer.h"
 #include "gpio.h"
+#include "rtc.h"
 
 states dispenserState = stateWait;
 
@@ -26,7 +27,16 @@ void changeStateToNotify(){
 void changeStateToWait(){
 	leTimerTurnOff();
 	pillTriggerOff();
+	menuButtonOff();
 	dispenserState = stateWait;
+}
+
+void changeStateToMenu(){
+	leTimerTurnOff();
+	pillTriggerOff();
+	menuButtonOn();
+	rtcDisable();
+	dispenserState = stateMenu;
 }
 
 states getDispenserState(){
